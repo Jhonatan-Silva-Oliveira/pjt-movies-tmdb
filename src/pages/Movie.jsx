@@ -4,7 +4,7 @@ import { BsGraphUp, BsWallet2, BsHourglassSplit, BsFillFileEarmarkTextFill } fro
 
 import MovieCard from "../components/MovieCard";
 
-import "./StylePages/Movie.css";
+import "./StylePages/Movie.css"
 
 const moviesURL = import.meta.env.VITE_API;
 const apiKey = import.meta.env.VITE_API_KEY;
@@ -20,13 +20,20 @@ const Movie = () => {
     setMovie(data);
   };
   
+  const formatCurrency = (number) => {
+    return number.toLocaleString("en-US", {
+      style: "currency",
+      currency: "USD",
+    })
+  }
+  
   useEffect(() => {
-    const movieUrl = `${moviesURL}${id}?${apiKey}`;
+    const movieUrl = `${moviesURL}${id}?${apiKey}&language=pt-BR`;
     getMovie(movieUrl);
   }, [])
 
   return (
-    <div>
+    <div className="movie-page">
       {movie && (
         <>
           <MovieCard movie={movie} showLink={false} />
@@ -35,13 +42,13 @@ const Movie = () => {
             <h3>
               <BsWallet2 /> Orçamento:
             </h3>
-            <p>{movie.budget}</p>
+            <p>{formatCurrency(movie.budget)}</p>
           </div>
           <div className="info">
             <h3>
               <BsGraphUp /> Receita:
             </h3>
-            <p>{movie.revenue}</p>
+            <p>{formatCurrency(movie.revenue)}</p>
           </div>
           <div className="info">
             <h3>
@@ -49,7 +56,7 @@ const Movie = () => {
             </h3>
             <p>{movie.runtime} minutos</p>
           </div>
-          <div className="info">
+          <div className="info description">
             <h3>
               <BsFillFileEarmarkTextFill /> Descrição:
             </h3>

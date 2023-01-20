@@ -1,4 +1,4 @@
-.movie-card{
+.movies-container .movie-card{
   width: 30%;
   color: #fff;
   margin-bottom: 2.5rem;
@@ -9,19 +9,19 @@
   padding: 1rem;
   border-radius: 10px;
 }
-.movie-card img{
+.movies-container .movie-card img{
   max-width: 100%;
   border-radius: 10px;
 }
-.movie-card img,
-.movie-card h2,
-.movie-card p{
+.movies-container .movie-card img,
+.movies-container .movie-card h2,
+.movies-container .movie-card p{
   margin-bottom: 1rem;
 }
-.movie-card svg{
+.movies-container .movie-card svg{
   color: #f7d354;
 }
-.movie-card a{
+.movies-container .movie-card a{
   background-color: #f7d354;
   border: 2px solid #f7d354;
   border-radius: 4px;
@@ -31,7 +31,7 @@
   text-align: center;
   font-weight: bold;
 }
-.movie-card a:hover{
+.movies-container .movie-card a:hover{
   background-color: transparent;
   color: #f7d354;
 }
